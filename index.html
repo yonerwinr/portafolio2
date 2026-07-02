@@ -33,15 +33,19 @@
     <div class="container">
       <a href="#" class="nav-logo">YONERWIN<span>.DEV</span></a>
       <ul class="nav-menu">
-        <li><a href="#" class="nav-link active">Inicio</a></li>
-        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-        <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
-        <li><a href="#timeline" class="nav-link">Trayectoria</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <li><a href="#" class="nav-link active" data-i18n="nav-home">Inicio</a></li>
+        <li><a href="#proyectos" class="nav-link" data-i18n="nav-projects">Proyectos</a></li>
+        <li><a href="#habilidades" class="nav-link" data-i18n="nav-skills">Habilidades</a></li>
+        <li><a href="#experiencia" class="nav-link" data-i18n="nav-experience">Experiencia</a></li>
+        <li><a href="#educacion" class="nav-link" data-i18n="nav-education">Educación</a></li>
+        <li><a href="#contacto" class="nav-link" data-i18n="nav-contact">Contacto</a></li>
       </ul>
-      <a href="CV Ing. Yonerwin Rodriguez.pdf" download="CV_Yonerwin_Rodriguez.pdf" class="btn-cv">
-        <i class="bx bx-download"></i> Descargar CV
-      </a>
+      <div class="nav-right">
+        <button id="langToggle" class="btn-lang"><i class="bx bx-globe"></i> EN</button>
+        <a href="CV Ing. Yonerwin Rodriguez.pdf" download="CV_Yonerwin_Rodriguez.pdf" class="btn-cv" id="cvLink">
+          <i class="bx bx-download"></i> <span data-i18n="nav-cv">Descargar CV</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -50,13 +54,12 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-text">
-          <h4>Ingeniero en Informática</h4>
-          <h1>Hola, soy Yonerwin Rodríguez</h1>
-          <p>Especializado en crear soluciones web modernas e implementar modelos de Inteligencia Artificial para la
-            toma de decisiones y optimización de datos.</p>
+          <h4 data-i18n="hero-subtitle">Ingeniero en Informática</h4>
+          <h1 data-i18n="hero-title">Hola, soy Yonerwin Rodríguez</h1>
+          <p data-i18n="hero-desc">Especializado en crear soluciones web modernas e implementar modelos de Inteligencia Artificial para la toma de decisiones y optimización de datos.</p>
           <div class="hero-cta">
-            <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
-            <a href="#contacto" class="btn-secondary">Hablemos</a>
+            <a href="#proyectos" class="btn-primary" data-i18n="hero-btn-projects">Ver Proyectos</a>
+            <a href="#contacto" class="btn-secondary" data-i18n="hero-btn-contact">Hablemos</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -73,22 +76,22 @@
   </section>
 
   <!-- Projects Section (Individual PC per Project) -->
-  <section id="proyectos">
+  <section id="proyectos" class="reveal">
     <div class="container">
-      <h2 class="section-title">Proyectos Destacados</h2>
+      <h2 class="section-title" data-i18n="projects-title">Proyectos Destacados</h2>
 
       <div class="projects-container">
         <!-- Project 1: It's Travel Vzla -->
         <div class="project-row">
           <div class="project-details">
             <div class="project-tags">
-              <span class="tag tag-travel">Web App</span>
-              <span class="tag tag-travel">Turismo</span>
+              <span class="tag tag-travel" data-i18n="tag-webapp">Web App</span>
+              <span class="tag tag-travel" data-i18n="tag-tourism">Turismo</span>
             </div>
             <h3>It's Travel Vzla</h3>
-            <p>Agencia de viajes con soluciones integrales en boletería, hospedajes, transporte terrestre y seguros de viajes.</p>
+            <p data-i18n="project-travelvzla-desc">Agencia de viajes con soluciones integrales en boletería, hospedajes, transporte terrestre y seguros de viajes.</p>
             <a href="https://itstravelvzla.vercel.app/" target="_blank" class="btn-project">
-              <i class="bx bx-link-external"></i> Visitar Sitio
+              <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
           <div class="project-preview">
@@ -118,14 +121,13 @@
         <div class="project-row">
           <div class="project-details">
             <div class="project-tags">
-              <span class="tag tag-ai">Inteligencia Artificial</span>
-              <span class="tag tag-med">Dashboard</span>
+              <span class="tag tag-ai" data-i18n="tag-ai">Inteligencia Artificial</span>
+              <span class="tag tag-med" data-i18n="tag-dashboard">Dashboard</span>
             </div>
             <h3>Petrojuana IA</h3>
-            <p>Optimización inteligente para la extracción y logística de petróleo utilizando modelos de redes
-              neuronales artificiales.</p>
+            <p data-i18n="project-petrojuana-desc">Optimización inteligente para la extracción y logística de petróleo utilizando modelos de redes neuronales artificiales.</p>
             <a href="https://petrojuana2.vercel.app/" target="_blank" class="btn-project">
-              <i class="bx bx-link-external"></i> Visitar Sitio
+              <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
           <div class="project-preview">
@@ -155,14 +157,13 @@
         <div class="project-row">
           <div class="project-details">
             <div class="project-tags">
-              <span class="tag tag-logistic">Logística</span>
-              <span class="tag tag-travel">Envíos</span>
+              <span class="tag tag-logistic" data-i18n="tag-logistics">Logística</span>
+              <span class="tag tag-travel" data-i18n="tag-shipping">Envíos</span>
             </div>
             <h3>Import2Ven</h3>
-            <p>Plataforma de gestión logística y envíos de carga puerta a puerta desde China y Estados Unidos hacia
-              Venezuela.</p>
+            <p data-i18n="project-import2ven-desc">Plataforma de gestión logística y envíos de carga puerta a puerta desde China y Estados Unidos hacia Venezuela.</p>
             <a href="https://import2venprueba2.vercel.app/" target="_blank" class="btn-project">
-              <i class="bx bx-link-external"></i> Visitar Sitio
+              <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
           <div class="project-preview">
@@ -192,14 +193,13 @@
         <div class="project-row">
           <div class="project-details">
             <div class="project-tags">
-              <span class="tag tag-med">Web App</span>
-              <span class="tag tag-ai">Ecología</span>
+              <span class="tag tag-med" data-i18n="tag-webapp">Web App</span>
+              <span class="tag tag-ai" data-i18n="tag-ecology">Ecología</span>
             </div>
             <h3>Huella Hídrica (Proyecto de Grado)</h3>
-            <p>Aplicación interactiva e informativa diseñada para calcular, analizar y concientizar sobre el consumo
-              hídrico personal.</p>
+            <p data-i18n="project-biuk-desc">Aplicación interactiva e informativa diseñada para calcular, analizar y concientizar sobre el consumo hídrico personal.</p>
             <a href="https://proyecto-de-grado-biuk.vercel.app/" target="_blank" class="btn-project">
-              <i class="bx bx-link-external"></i> Visitar Sitio
+              <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
           <div class="project-preview">
@@ -229,14 +229,13 @@
         <div class="project-row">
           <div class="project-details">
             <div class="project-tags">
-              <span class="tag tag-travel">Asistente Virtual</span>
-              <span class="tag tag-travel">UX/UI</span>
+              <span class="tag tag-travel" data-i18n="tag-assistant">Asistente Virtual</span>
+              <span class="tag tag-travel" data-i18n="tag-uxui">UX/UI</span>
             </div>
             <h3>It's Travel</h3>
-            <p>Portal turístico internacional de la agencia It's Travel, que integra un asistente de chat virtual
-              inteligente.</p>
+            <p data-i18n="project-itstravel-desc">Portal turístico internacional de la agencia It's Travel, que integra un asistente de chat virtual inteligente.</p>
             <a href="https://itstravel.vercel.app/" target="_blank" class="btn-project">
-              <i class="bx bx-link-external"></i> Visitar Sitio
+              <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
           <div class="project-preview">
@@ -266,14 +265,13 @@
         <div class="project-row">
           <div class="project-details">
             <div class="project-tags">
-              <span class="tag tag-logistic">E-commerce</span>
-              <span class="tag tag-ai">Tecnología</span>
+              <span class="tag tag-logistic" data-i18n="tag-ecommerce">E-commerce</span>
+              <span class="tag tag-ai" data-i18n="tag-tech">Tecnología</span>
             </div>
             <h3>Variedades Your Faith</h3>
-            <p>Tienda online premium de dispositivos tecnológicos, gadgets e importaciones, con pasarela interactiva y
-              soporte directo.</p>
+            <p data-i18n="project-yourfaith-desc">Tienda online premium de dispositivos tecnológicos, gadgets e importaciones, con pasarela interactiva y soporte directo.</p>
             <a href="https://yourfaith.vercel.app/" target="_blank" class="btn-project">
-              <i class="bx bx-link-external"></i> Visitar Sitio
+              <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
           <div class="project-preview">
@@ -305,7 +303,7 @@
   <!-- Habilidades Section -->
   <section id="habilidades">
     <div class="container">
-      <h2 class="section-title">Habilidades Técnicas</h2>
+      <h2 class="section-title" data-i18n="skills-title">Habilidades Técnicas</h2>
       <div class="skills-grid">
         <div class="skill-card glass-panel">
           <div class="skill-icon" style="color: #f06529;"><i class="bx bxl-html5"></i></div>
@@ -329,7 +327,7 @@
         </div>
         <div class="skill-card glass-panel">
           <div class="skill-icon" style="color: #00758f;"><i class="bx bx-data"></i></div>
-          <p>Bases de Datos</p>
+          <p data-i18n="skill-databases">Bases de Datos</p>
         </div>
         <div class="skill-card glass-panel">
           <div class="skill-icon" style="color: #f05032;"><i class="bx bxl-git"></i></div>
@@ -339,137 +337,163 @@
           <div class="skill-icon" style="color: #3b82f6;"><i class="bx bx-server"></i></div>
           <p>Supabase / Firebase</p>
         </div>
+        <div class="skill-card glass-panel">
+          <div class="skill-icon" style="color: #4285f4;"><i class="bx bxl-google"></i></div>
+          <p data-i18n="skill-google">Herramientas de Google</p>
+        </div>
+        <div class="skill-card glass-panel">
+          <div class="skill-icon" style="color: #a855f7;"><i class="bx bx-brain"></i></div>
+          <p data-i18n="skill-ai">Inteligencia Artificial (IA)</p>
+        </div>
+        <div class="skill-card glass-panel">
+          <div class="skill-icon" style="color: #f25022;"><i class="bx bxl-microsoft"></i></div>
+          <p data-i18n="skill-microsoft">Herramientas de Microsoft</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Trajectory Timeline (Experience & Education) -->
-  <section id="timeline">
+  <!-- Experiencia Section -->
+  <section id="experiencia" class="reveal">
     <div class="container">
-      <h2 class="section-title">Mi Trayectoria</h2>
+      <h2 class="section-title" data-i18n="exp-title">Experiencia Laboral</h2>
+      <div class="timeline-wrapper-full">
+        <div class="timeline-line"></div>
 
-      <div class="timeline-grid">
-        <!-- Experiencia Laboral -->
-        <div class="timeline-column">
-          <h3>Experiencia Laboral</h3>
-          <div class="timeline-wrapper">
-            <div class="timeline-item">
-              <span class="timeline-date">Abril 2025 - Actualidad</span>
+        <div class="timeline-item-full reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content-card glass-panel">
+            <div class="timeline-header">
+              <span class="timeline-date" data-i18n="exp-date-1">Abril 2025 - Actualidad</span>
               <h4>Variedades Your Faith</h4>
-              <p class="institution">Emprendedor</p>
-              <ul>
-                <li>Gestión de compras nacionales e internacionales.</li>
-                <li>Coordinación de inventarios y logística comercial de importaciones.</li>
-              </ul>
+              <p class="institution" data-i18n="exp-role-1">Emprendedor</p>
             </div>
+            <ul>
+              <li data-i18n="exp-task-1-1">Gestión de compras nacionales e internacionales.</li>
+              <li data-i18n="exp-task-1-2">Coordinación de inventarios y logística comercial de importaciones.</li>
+            </ul>
+          </div>
+        </div>
 
-            <div class="timeline-item">
-              <span class="timeline-date">Enero 2025 - Abril 2025</span>
+        <div class="timeline-item-full reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content-card glass-panel">
+            <div class="timeline-header">
+              <span class="timeline-date" data-i18n="exp-date-2">Enero 2025 - Abril 2025</span>
               <h4>SISALUD Paraíso</h4>
-              <p class="institution">Analista de Soporte IT</p>
-              <ul>
-                <li>Soporte técnico de hardware, software y conectividad a red.</li>
-                <li>Desarrollo y mantenimiento de módulos de gestión administrativa de pacientes.</li>
-              </ul>
+              <p class="institution" data-i18n="exp-role-2">Analista de Soporte IT</p>
             </div>
+            <ul>
+              <li data-i18n="exp-task-2-1">Soporte técnico de hardware, software y conectividad a red.</li>
+              <li data-i18n="exp-task-2-2">Desarrollo y mantenimiento de módulos de gestión administrativa de pacientes.</li>
+            </ul>
+          </div>
+        </div>
 
-            <div class="timeline-item">
-              <span class="timeline-date">Mayo 2024 - Noviembre 2024</span>
+        <div class="timeline-item-full reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content-card glass-panel">
+            <div class="timeline-header">
+              <span class="timeline-date" data-i18n="exp-date-3">Mayo 2024 - Noviembre 2024</span>
               <h4>It's Travel Agency</h4>
-              <p class="institution">Desarrollador Web</p>
-              <ul>
-                <li>Desarrollo de aplicación web personalizada para reservas.</li>
-                <li>Diseño e implementación de interfaz responsive accesible.</li>
-              </ul>
+              <p class="institution" data-i18n="exp-role-3">Desarrollador Web</p>
             </div>
+            <ul>
+              <li data-i18n="exp-task-3-1">Desarrollo de aplicación web personalizada para reservas.</li>
+              <li data-i18n="exp-task-3-2">Diseño e implementación de interfaz responsive accesible.</li>
+            </ul>
           </div>
         </div>
 
-        <!-- Educación y Certificados -->
-        <div class="timeline-column">
-          <h3>Educación & Certificaciones</h3>
-          <div class="timeline-wrapper">
-            <div class="timeline-item">
-              <span class="timeline-date">Febrero 2026 - Abril 2026</span>
-              <h4>Bootcamp IA sector Petrolero</h4>
-              <p class="institution">Universidad del Zulia (LUZ)</p>
-              <p>Formación avanzada en Machine Learning, análisis de datos y redes neuronales aplicadas a la
-                optimización de operaciones energéticas.</p>
-            </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="timeline-item">
-              <span class="timeline-date">Enero 2020 - Abril 2025</span>
-              <h4>Ingeniería de Informática</h4>
-              <p class="institution">Universidad Privada Dr. Rafael Belloso Chacín (URBE)</p>
-              <p>Graduado en Ingeniería de Informática con foco en desarrollo de software, algoritmos avanzados y diseño
-                de arquitecturas de bases de datos.</p>
-            </div>
+  <!-- Educación & Certificaciones Section -->
+  <section id="educacion" class="reveal">
+    <div class="container">
+      <h2 class="section-title" data-i18n="edu-title">Educación & Certificaciones</h2>
+      <div class="education-grid">
 
-            <div class="timeline-item">
-              <span class="timeline-date">Agosto 2024 - Actualidad</span>
-              <h4>Curso de Inglés (Nivel B2)</h4>
-              <p class="institution">Centro Venezolano Americano del Zulia (CEVAZ)</p>
-              <p>Estudios continuos del idioma inglés, logrando fluidez comunicativa y técnica.</p>
-            </div>
-          </div>
+        <div class="education-card glass-panel reveal" style="--card-glow: rgba(245, 158, 11, 0.25)">
+          <div class="edu-icon" style="color: #f59e0b;"><i class="bx bx-certification"></i></div>
+          <span class="edu-date" data-i18n="edu-date-1">Febrero 2026 - Abril 2026</span>
+          <h3 data-i18n="edu-title-1">Bootcamp IA sector Petrolero</h3>
+          <p class="edu-institution">Universidad del Zulia (LUZ)</p>
+          <p class="edu-desc" data-i18n="edu-desc-1">Formación avanzada en Machine Learning, análisis de datos y redes neuronales aplicadas a la optimización de operaciones energéticas.</p>
         </div>
+
+        <div class="education-card glass-panel reveal" style="--card-glow: rgba(99, 102, 241, 0.25)">
+          <div class="edu-icon" style="color: #6366f1;"><i class="bx bxs-graduation"></i></div>
+          <span class="edu-date" data-i18n="edu-date-2">Enero 2020 - Abril 2025</span>
+          <h3 data-i18n="edu-title-2">Ingeniería de Informática</h3>
+          <p class="edu-institution">Universidad Privada Dr. Rafael Belloso Chacín (URBE)</p>
+          <p class="edu-desc" data-i18n="edu-desc-2">Graduado en Ingeniería de Informática con foco en desarrollo de software, algoritmos avanzados y diseño de arquitecturas de bases de datos.</p>
+        </div>
+
+        <div class="education-card glass-panel reveal" style="--card-glow: rgba(16, 185, 129, 0.25)">
+          <div class="edu-icon" style="color: #10b981;"><i class="bx bx-world"></i></div>
+          <span class="edu-date" data-i18n="edu-date-3">Agosto 2024 - Actualidad</span>
+          <h3 data-i18n="edu-title-3">Curso de Inglés (Nivel B2)</h3>
+          <p class="edu-institution">Centro Venezolano Americano del Zulia (CEVAZ)</p>
+          <p class="edu-desc" data-i18n="edu-desc-3">Estudios continuos del idioma inglés, logrando fluidez comunicativa y técnica.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contacto">
+  <section id="contacto" class="reveal">
     <div class="container">
-      <h2 class="section-title">Contáctame</h2>
+      <h2 class="section-title" data-i18n="contact-title">Contáctame</h2>
       <div class="contact-grid">
 
-        <div class="contact-info">
-          <h3>¿Tienes un proyecto en mente?</h3>
-          <p>Estoy disponible para integrarme a equipos de desarrollo o cooperar en el diseño de soluciones de software
-            a medida. ¡Hablemos!</p>
+        <div class="contact-info reveal-left">
+          <h3 data-i18n="contact-subtitle">¿Tienes un proyecto en mente?</h3>
+          <p data-i18n="contact-desc">Estoy disponible para integrarme a equipos de desarrollo o cooperar en el diseño de soluciones de software a medida. ¡Hablemos directamente por WhatsApp!</p>
 
           <div class="contact-details">
             <div class="contact-detail-item">
+              <div class="contact-icon" style="color: #25d366;"><i class="bx bxl-whatsapp"></i></div>
+              <div class="contact-text">
+                <h4>WhatsApp</h4>
+                <p><a href="https://wa.me/584126807599" target="_blank"
+                    style="color: inherit; text-decoration: none;">+58-4126807599</a></p>
+              </div>
+            </div>
+            <div class="contact-detail-item">
               <div class="contact-icon"><i class="bx bx-envelope"></i></div>
               <div class="contact-text">
-                <h4>Correo Electrónico</h4>
+                <h4 data-i18n="contact-label-email">Correo Electrónico</h4>
                 <p><a href="mailto:yonerwinrodriguez19@gmail.com"
                     style="color: inherit; text-decoration: none;">yonerwinrodriguez19@gmail.com</a></p>
               </div>
             </div>
             <div class="contact-detail-item">
-              <div class="contact-icon"><i class="bx bx-phone"></i></div>
-              <div class="contact-text">
-                <h4>Teléfono</h4>
-                <p>+58-4126807599</p>
-              </div>
-            </div>
-            <div class="contact-detail-item">
               <div class="contact-icon"><i class="bx bx-map"></i></div>
               <div class="contact-text">
-                <h4>Ubicación</h4>
+                <h4 data-i18n="contact-label-location">Ubicación</h4>
                 <p>Maracaibo, Edo. Zulia, Venezuela</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="contact-form-card glass-panel">
+        <div class="contact-form-card glass-panel reveal-right">
           <form id="contactForm" class="contact-form">
             <div class="form-group-main">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" required placeholder="Tu nombre">
+              <label for="name" data-i18n="contact-label-name">Nombre</label>
+              <input type="text" id="name" required placeholder="Tu nombre" data-i18n="contact-placeholder-name">
             </div>
             <div class="form-group-main">
-              <label for="email">Correo</label>
-              <input type="email" id="email" required placeholder="Tu correo electrónico">
+              <label for="message" data-i18n="contact-label-message">Mensaje</label>
+              <textarea id="message" rows="5" required
+                placeholder="Hola Yonerwin, me gustaría hablar contigo sobre..." data-i18n="contact-placeholder-message"></textarea>
             </div>
-            <div class="form-group-main">
-              <label for="message">Mensaje</label>
-              <textarea id="message" rows="4" required
-                placeholder="Hola Yonerwin, me gustaría hablar contigo sobre..."></textarea>
-            </div>
-            <button type="submit" class="btn-send">Enviar Mensaje</button>
+            <button type="submit" class="btn-send" style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+              <i class="bx bxl-whatsapp" style="font-size: 1.3rem; vertical-align: middle; margin-right: 5px;"></i> <span data-i18n="contact-btn-send">Enviar a WhatsApp</span>
+            </button>
           </form>
         </div>
 
@@ -480,9 +504,14 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Yonerwin Rodríguez. Todos los derechos reservados. Diseñado con pasión.</p>
+      <p data-i18n="footer-text">&copy; 2026 Yonerwin Rodríguez. Todos los derechos reservados. Diseñado con pasión.</p>
     </div>
   </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/584126807599" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <i class="bx bxl-whatsapp"></i>
+  </a>
 
   <!-- Scripts -->
   <script src="js/main.js"></script>

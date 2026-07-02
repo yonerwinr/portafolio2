@@ -197,6 +197,37 @@ section {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-lang {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-lang i {
+  font-size: 0.95rem;
+}
+
+.btn-lang:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  color: var(--white);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
+}
+
 .btn-cv {
   background: linear-gradient(135deg, var(--primary) 0%, var(--cyan) 100%);
   color: var(--white);
@@ -797,25 +828,56 @@ section {
   border-left: 2px solid rgba(255, 255, 255, 0.05);
 }
 
-.timeline-item {
+/* New Timeline Section (Experience) */
+.timeline-wrapper-full {
   position: relative;
-  margin-bottom: 30px;
-  padding: 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  background: rgba(15, 23, 42, 0.2);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
-.timeline-item::after {
-  content: '';
+.timeline-line {
   position: absolute;
-  left: -27px;
-  top: 25px;
-  width: 12px;
-  height: 12px;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary) 0%, var(--cyan) 100%);
+  opacity: 0.2;
+}
+
+.timeline-item-full {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 70px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 23px;
+  top: 35px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background-color: var(--bg-dark);
-  border: 2px solid var(--primary);
+  background: var(--bg-dark);
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 10px var(--cyan-glow);
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.timeline-item-full:hover .timeline-dot {
+  transform: scale(1.3);
+  border-color: var(--white);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.timeline-content-card {
+  padding: 24px;
+}
+
+.timeline-header {
+  margin-bottom: 12px;
 }
 
 .timeline-date {
@@ -823,35 +885,87 @@ section {
   font-weight: 700;
   color: var(--cyan);
   text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timeline-content-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-top: 4px;
+}
+
+.timeline-content-card .institution {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.timeline-content-card ul {
+  padding-left: 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Education & Certifications Grid */
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.education-card {
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+}
+
+.education-card:hover {
+  border-color: var(--card-glow) !important;
+  box-shadow: 0 15px 35px var(--card-glow);
+  transform: translateY(-5px);
+}
+
+.edu-icon {
+  font-size: 2.2rem;
   margin-bottom: 5px;
 }
 
-.timeline-item h4 {
-  font-size: 1.1rem;
+.edu-date {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.education-card h3 {
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 2px;
+  color: var(--white);
 }
 
-.timeline-item .institution {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.edu-institution {
+  font-size: 0.95rem;
+  color: var(--cyan);
   font-weight: 500;
-  margin-bottom: 10px;
 }
 
-.timeline-item p {
-  font-size: 0.85rem;
+.edu-desc {
+  font-size: 0.88rem;
   color: var(--text-muted);
+  line-height: 1.6;
 }
 
-.timeline-item ul {
-  padding-left: 15px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 8px;
-}
-
-/* Contact Section */
+/* Contact Grid Adjustments */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -955,7 +1069,6 @@ section {
 }
 
 .btn-send {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--cyan) 100%);
   color: var(--white);
   border: none;
   padding: 14px;
@@ -968,7 +1081,106 @@ section {
 
 .btn-send:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+  opacity: 0.9;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366;
+  color: var(--white);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 32px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 12px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: pulse-wa 2s infinite;
+}
+
+.whatsapp-float:hover {
+  background-color: #128c7e;
+  transform: scale(1.1);
+  color: var(--white);
+}
+
+@keyframes pulse-wa {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Scroll Triggered Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Background floating glow animations */
+.bg-glow-1 {
+  animation: float-glow-1 25s ease-in-out infinite alternate;
+}
+
+.bg-glow-2 {
+  animation: float-glow-2 30s ease-in-out infinite alternate;
+}
+
+@keyframes float-glow-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(8%, 12%) scale(1.15);
+  }
+  100% {
+    transform: translate(-4%, -8%) scale(0.95);
+  }
+}
+
+@keyframes float-glow-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-12%, -8%) scale(1.1);
+  }
+  100% {
+    transform: translate(8%, 4%) scale(0.9);
+  }
 }
 
 /* Footer */
