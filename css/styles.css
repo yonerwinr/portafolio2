@@ -1442,3 +1442,12 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(99, 102, 241, 0.2);
 }
+
+/* LinkedIn Hover Effects */
+.btn-social[aria-label="LinkedIn"]:hover,
+.footer-social-link[aria-label="LinkedIn"]:hover {
+  background: rgba(0, 119, 181, 0.1);
+  border-color: #0077b5;
+  color: #0077b5;
+  box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+}
