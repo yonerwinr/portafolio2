@@ -40,12 +40,24 @@
         <li><a href="#experiencia" class="nav-link" data-i18n="nav-experience">Experiencia</a></li>
         <li><a href="#educacion" class="nav-link" data-i18n="nav-education">Educación</a></li>
         <li><a href="#contacto" class="nav-link" data-i18n="nav-contact">Contacto</a></li>
+        <!-- Mobile Only Menu Items -->
+        <li class="mobile-only">
+          <button class="btn-lang btn-lang-mobile"><i class="bx bx-globe"></i> EN</button>
+        </li>
+        <li class="mobile-only">
+          <a href="CV Ing. Yonerwin Rodriguez.pdf" download="CV_Yonerwin_Rodriguez.pdf" class="btn-cv">
+            <i class="bx bx-download"></i> <span data-i18n="nav-cv">Descargar CV</span>
+          </a>
+        </li>
       </ul>
       <div class="nav-right">
         <button id="langToggle" class="btn-lang"><i class="bx bx-globe"></i> EN</button>
         <a href="CV Ing. Yonerwin Rodriguez.pdf" download="CV_Yonerwin_Rodriguez.pdf" class="btn-cv" id="cvLink">
           <i class="bx bx-download"></i> <span data-i18n="nav-cv">Descargar CV</span>
         </a>
+        <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú">
+          <i class="bx bx-menu"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -85,226 +97,142 @@
     <div class="container">
       <h2 class="section-title" data-i18n="projects-title">Proyectos Destacados</h2>
 
-      <div class="projects-container">
+      <div class="projects-grid">
         <!-- Project 1: It's Travel Vzla -->
-        <div class="project-row">
-          <div class="project-details">
+        <div class="project-card" style="--glow-color: rgba(59, 130, 246, 0.45)">
+          <div class="project-image-wrapper">
+            <div class="project-image-container">
+              <img src="projects/previews/travelvzla.png" alt="It's Travel Vzla">
+            </div>
+            <div class="project-image-overlay">
+              <span class="browser-url-tab">https://itstravelvzla.vercel.app/</span>
+            </div>
+          </div>
+          <div class="project-info">
             <div class="project-tags">
               <span class="tag tag-travel" data-i18n="tag-webapp">Web App</span>
               <span class="tag tag-travel" data-i18n="tag-tourism">Turismo</span>
             </div>
             <h3>It's Travel Vzla</h3>
-            <p data-i18n="project-travelvzla-desc">Agencia de viajes con soluciones integrales en boletería, hospedajes,
-              transporte terrestre y seguros de viajes.</p>
+            <p data-i18n="project-travelvzla-desc">Agencia de viajes con soluciones integrales en boletería, hospedajes, transporte terrestre y seguros de viajes.</p>
             <a href="https://itstravelvzla.vercel.app/" target="_blank" class="btn-project">
               <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
-          <div class="project-preview">
-            <div class="laptop-wrapper">
-              <div class="laptop-mockup" style="--glow-color: rgba(59, 130, 246, 0.4)">
-                <div class="laptop-glow"></div>
-                <div class="laptop-screen">
-                  <div class="browser-bar">
-                    <div class="browser-buttons">
-                      <span class="browser-dot red"></span>
-                      <span class="browser-dot yellow"></span>
-                      <span class="browser-dot green"></span>
-                    </div>
-                    <div class="browser-url">https://itstravelvzla.vercel.app/</div>
-                  </div>
-                  <div class="laptop-screen-display">
-                    <img src="projects/previews/travelvzla.png" class="active" alt="Preloader del proyecto">
-                  </div>
-                </div>
-                <div class="laptop-base"></div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Project 2: Petrojuana IA -->
-        <div class="project-row">
-          <div class="project-details">
+        <div class="project-card" style="--glow-color: rgba(245, 158, 11, 0.45)">
+          <div class="project-image-wrapper">
+            <div class="project-image-container">
+              <img src="projects/previews/petrojuana.png" alt="Petrojuana IA">
+            </div>
+            <div class="project-image-overlay">
+              <span class="browser-url-tab">https://petrojuana2.vercel.app/</span>
+            </div>
+          </div>
+          <div class="project-info">
             <div class="project-tags">
               <span class="tag tag-ai" data-i18n="tag-ai">Inteligencia Artificial</span>
               <span class="tag tag-med" data-i18n="tag-dashboard">Dashboard</span>
             </div>
             <h3>Petrojuana IA</h3>
-            <p data-i18n="project-petrojuana-desc">Optimización inteligente para la extracción y logística de petróleo
-              utilizando modelos de redes neuronales artificiales.</p>
+            <p data-i18n="project-petrojuana-desc">Optimización inteligente para la extracción y logística de petróleo utilizando modelos de redes neuronales artificiales.</p>
             <a href="https://petrojuana2.vercel.app/" target="_blank" class="btn-project">
               <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
-          <div class="project-preview">
-            <div class="laptop-wrapper">
-              <div class="laptop-mockup" style="--glow-color: rgba(245, 158, 11, 0.4)">
-                <div class="laptop-glow"></div>
-                <div class="laptop-screen">
-                  <div class="browser-bar">
-                    <div class="browser-buttons">
-                      <span class="browser-dot red"></span>
-                      <span class="browser-dot yellow"></span>
-                      <span class="browser-dot green"></span>
-                    </div>
-                    <div class="browser-url">https://petrojuana2.vercel.app/</div>
-                  </div>
-                  <div class="laptop-screen-display">
-                    <img src="projects/previews/petrojuana.png" class="active" alt="Vista de Petrojuana">
-                  </div>
-                </div>
-                <div class="laptop-base"></div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Project 3: Import2Ven -->
-        <div class="project-row">
-          <div class="project-details">
+        <div class="project-card" style="--glow-color: rgba(99, 102, 241, 0.45)">
+          <div class="project-image-wrapper">
+            <div class="project-image-container">
+              <img src="projects/previews/import2ven.png" alt="Import2Ven">
+            </div>
+            <div class="project-image-overlay">
+              <span class="browser-url-tab">https://import2venprueba2.vercel.app/</span>
+            </div>
+          </div>
+          <div class="project-info">
             <div class="project-tags">
               <span class="tag tag-logistic" data-i18n="tag-logistics">Logística</span>
               <span class="tag tag-travel" data-i18n="tag-shipping">Envíos</span>
             </div>
             <h3>Import2Ven</h3>
-            <p data-i18n="project-import2ven-desc">Plataforma de gestión logística y envíos de carga puerta a puerta
-              desde China y Estados Unidos hacia Venezuela.</p>
+            <p data-i18n="project-import2ven-desc">Plataforma de gestión logística y envíos de carga puerta a puerta desde China y Estados Unidos hacia Venezuela.</p>
             <a href="https://import2venprueba2.vercel.app/" target="_blank" class="btn-project">
               <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
-          <div class="project-preview">
-            <div class="laptop-wrapper">
-              <div class="laptop-mockup" style="--glow-color: rgba(99, 102, 241, 0.4)">
-                <div class="laptop-glow"></div>
-                <div class="laptop-screen">
-                  <div class="browser-bar">
-                    <div class="browser-buttons">
-                      <span class="browser-dot red"></span>
-                      <span class="browser-dot yellow"></span>
-                      <span class="browser-dot green"></span>
-                    </div>
-                    <div class="browser-url">https://import2venprueba2.vercel.app/</div>
-                  </div>
-                  <div class="laptop-screen-display">
-                    <img src="projects/previews/import2ven.png" class="active" alt="Vista de Import2Ven">
-                  </div>
-                </div>
-                <div class="laptop-base"></div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Project 4: Huella Hídrica -->
-        <div class="project-row">
-          <div class="project-details">
+        <div class="project-card" style="--glow-color: rgba(16, 185, 129, 0.45)">
+          <div class="project-image-wrapper">
+            <div class="project-image-container">
+              <img src="projects/previews/biuk.png" alt="Huella Hídrica">
+            </div>
+            <div class="project-image-overlay">
+              <span class="browser-url-tab">https://proyecto-de-grado-biuk.vercel.app/</span>
+            </div>
+          </div>
+          <div class="project-info">
             <div class="project-tags">
               <span class="tag tag-med" data-i18n="tag-webapp">Web App</span>
               <span class="tag tag-ai" data-i18n="tag-ecology">Ecología</span>
             </div>
             <h3>Huella Hídrica (Proyecto de Grado)</h3>
-            <p data-i18n="project-biuk-desc">Aplicación interactiva e informativa diseñada para calcular, analizar y
-              concientizar sobre el consumo hídrico personal.</p>
+            <p data-i18n="project-biuk-desc">Aplicación interactiva e informativa diseñada para calcular, analizar y concientizar sobre el consumo hídrico personal.</p>
             <a href="https://proyecto-de-grado-biuk.vercel.app/" target="_blank" class="btn-project">
               <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
-          <div class="project-preview">
-            <div class="laptop-wrapper">
-              <div class="laptop-mockup" style="--glow-color: rgba(16, 185, 129, 0.4)">
-                <div class="laptop-glow"></div>
-                <div class="laptop-screen">
-                  <div class="browser-bar">
-                    <div class="browser-buttons">
-                      <span class="browser-dot red"></span>
-                      <span class="browser-dot yellow"></span>
-                      <span class="browser-dot green"></span>
-                    </div>
-                    <div class="browser-url">https://proyecto-de-grado-biuk.vercel.app/</div>
-                  </div>
-                  <div class="laptop-screen-display">
-                    <img src="projects/previews/biuk.png" class="active" alt="Vista de Huella Hídrica">
-                  </div>
-                </div>
-                <div class="laptop-base"></div>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <!-- Project 5: It's Travel Global -->
-        <div class="project-row">
-          <div class="project-details">
+        <!-- Project 5: It's Travel -->
+        <div class="project-card" style="--glow-color: rgba(139, 92, 246, 0.45)">
+          <div class="project-image-wrapper">
+            <div class="project-image-container">
+              <img src="projects/previews/itstravel.png" alt="It's Travel">
+            </div>
+            <div class="project-image-overlay">
+              <span class="browser-url-tab">https://itstravel.vercel.app/</span>
+            </div>
+          </div>
+          <div class="project-info">
             <div class="project-tags">
               <span class="tag tag-travel" data-i18n="tag-assistant">Asistente Virtual</span>
               <span class="tag tag-travel" data-i18n="tag-uxui">UX/UI</span>
             </div>
             <h3>It's Travel</h3>
-            <p data-i18n="project-itstravel-desc">Portal turístico internacional de la agencia It's Travel, que integra
-              un asistente de chat virtual inteligente.</p>
+            <p data-i18n="project-itstravel-desc">Portal turístico internacional de la agencia It's Travel, que integra un asistente de chat virtual inteligente.</p>
             <a href="https://itstravel.vercel.app/" target="_blank" class="btn-project">
               <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
           </div>
-          <div class="project-preview">
-            <div class="laptop-wrapper">
-              <div class="laptop-mockup" style="--glow-color: rgba(139, 92, 246, 0.4)">
-                <div class="laptop-glow"></div>
-                <div class="laptop-screen">
-                  <div class="browser-bar">
-                    <div class="browser-buttons">
-                      <span class="browser-dot red"></span>
-                      <span class="browser-dot yellow"></span>
-                      <span class="browser-dot green"></span>
-                    </div>
-                    <div class="browser-url">https://itstravel.vercel.app/</div>
-                  </div>
-                  <div class="laptop-screen-display">
-                    <img src="projects/previews/itstravel.png" class="active" alt="Vista de It's Travel">
-                  </div>
-                </div>
-                <div class="laptop-base"></div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Project 6: Variedades Your Faith -->
-        <div class="project-row">
-          <div class="project-details">
+        <div class="project-card" style="--glow-color: rgba(6, 182, 212, 0.45)">
+          <div class="project-image-wrapper">
+            <div class="project-image-container">
+              <img src="projects/previews/yourfaith.png" alt="Variedades Your Faith">
+            </div>
+            <div class="project-image-overlay">
+              <span class="browser-url-tab">https://yourfaith.vercel.app/</span>
+            </div>
+          </div>
+          <div class="project-info">
             <div class="project-tags">
               <span class="tag tag-logistic" data-i18n="tag-ecommerce">E-commerce</span>
               <span class="tag tag-ai" data-i18n="tag-tech">Tecnología</span>
             </div>
             <h3>Variedades Your Faith</h3>
-            <p data-i18n="project-yourfaith-desc">Tienda online premium de dispositivos tecnológicos, gadgets e
-              importaciones, con pasarela interactiva y soporte directo.</p>
+            <p data-i18n="project-yourfaith-desc">Tienda online premium de dispositivos tecnológicos, gadgets e importaciones, con pasarela interactiva y soporte directo.</p>
             <a href="https://yourfaith.vercel.app/" target="_blank" class="btn-project">
               <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
-          </div>
-          <div class="project-preview">
-            <div class="laptop-wrapper">
-              <div class="laptop-mockup" style="--glow-color: rgba(6, 182, 212, 0.4)">
-                <div class="laptop-glow"></div>
-                <div class="laptop-screen">
-                  <div class="browser-bar">
-                    <div class="browser-buttons">
-                      <span class="browser-dot red"></span>
-                      <span class="browser-dot yellow"></span>
-                      <span class="browser-dot green"></span>
-                    </div>
-                    <div class="browser-url">https://yourfaith.vercel.app/</div>
-                  </div>
-                  <div class="laptop-screen-display">
-                    <img src="projects/previews/yourfaith.png" class="active" alt="Vista de Your Faith">
-                  </div>
-                </div>
-                <div class="laptop-base"></div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

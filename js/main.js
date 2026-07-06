@@ -269,20 +269,33 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(type, 1000);
   }
 
-  // --- 3. Inclinación 3D en las Laptops (Parallax al mover el mouse) ---
-  const laptopMockups = document.querySelectorAll('.laptop-mockup');
-  const projectSection = document.getElementById('proyectos');
+  // --- 3. Inclinación 3D y Efecto de Brillo en Tarjetas de Proyectos ---
+  const projectCards = document.querySelectorAll('.project-card');
 
-  if (laptopMockups.length > 0 && projectSection) {
-    document.addEventListener('mousemove', (e) => {
-      const xVal = (e.clientX / window.innerWidth) - 0.5;
-      const yVal = (e.clientY / window.innerHeight) - 0.5;
+  if (projectCards.length > 0) {
+    projectCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-      const rotateX = 10 - (yVal * 15);
-      const rotateY = -8 + (xVal * 20);
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+        card.style.setProperty('--mouse-x', `${xPercent}%`);
+        card.style.setProperty('--mouse-y', `${yPercent}%`);
 
-      laptopMockups.forEach(mockup => {
-        mockup.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = -(y - centerY) / 12;
+        const rotateY = (x - centerX) / 15;
+
+        card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.setProperty('--mouse-x', '50%');
+        card.style.setProperty('--mouse-y', '50%');
       });
     });
   }
@@ -311,11 +324,11 @@ document.addEventListener('DOMContentLoaded', () => {
     currentLang = lang;
     localStorage.setItem('portfolioLang', lang);
 
-    // Actualizar botón langToggle
-    const langToggle = document.getElementById('langToggle');
-    if (langToggle) {
-      langToggle.innerHTML = `<i class="bx bx-globe"></i> ${lang === 'es' ? 'EN' : 'ES'}`;
-    }
+    // Actualizar todos los botones de idioma
+    const langToggles = document.querySelectorAll('.btn-lang');
+    langToggles.forEach(btn => {
+      btn.innerHTML = `<i class="bx bx-globe"></i> ${lang === 'es' ? 'EN' : 'ES'}`;
+    });
 
     // Traducir todos los elementos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -352,12 +365,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Configurar event listener en el botón del navbar
-  const langToggleBtn = document.getElementById('langToggle');
-  if (langToggleBtn) {
-    langToggleBtn.addEventListener('click', () => {
+  // Configurar event listener en todos los botones de idioma
+  const langToggleBtns = document.querySelectorAll('.btn-lang');
+  langToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
       const nextLang = currentLang === 'es' ? 'en' : 'es';
       applyLanguage(nextLang);
+    });
+  });
+
+  // --- 7. Menú de Navegación Responsivo (Mobile Menu) ---
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+      const isOpen = navMenu.classList.contains('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon) {
+        icon.className = isOpen ? 'bx bx-x' : 'bx bx-menu';
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+          icon.className = 'bx bx-menu';
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          const icon = menuToggle.querySelector('i');
+          if (icon) {
+            icon.className = 'bx bx-menu';
+          }
+        }
+      }
     });
   }
 
