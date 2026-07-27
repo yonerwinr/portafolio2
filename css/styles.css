@@ -1583,38 +1583,33 @@ section {
   font-size: 1.5rem;
 }
 
-/* Animación del icono de GitHub */
-@keyframes github-bounce {
+/* Animación de la mano del Octocat de GitHub */
+@keyframes octocat-wave {
   0%, 100% {
-    transform: translateY(0) scale(1);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+
+.btn-more-projects:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out infinite;
+}
+
+/* Animación del balancín de petróleo (Pumpjack) */
+@keyframes pumpjack-rock {
+  0%, 100% {
+    transform: rotate(-8deg);
   }
   50% {
-    transform: translateY(-5px) scale(1.1);
+    transform: rotate(12deg);
   }
 }
 
-.btn-more-projects:hover .github-bounce {
-  animation: github-bounce 1s infinite ease-in-out;
-}
-
-/* Animación de gota de petróleo cayendo/goteando */
-@keyframes oil-drip {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  20% {
-    transform: translateY(-2px) scaleX(0.85) scaleY(1.15); /* estiramiento hacia arriba */
-  }
-  50% {
-    transform: translateY(6px) scaleX(1.1) scaleY(0.75); /* goteo hacia abajo y aplastamiento */
-  }
-  70% {
-    transform: translateY(2px) scale(1.05); /* rebote */
-  }
-}
-
-.oil-drip-icon {
-  display: inline-block;
-  animation: oil-drip 2.2s infinite ease-in-out;
-  transform-origin: top center;
+.oil-pumpjack-icon .pumpjack-beam {
+  animation: pumpjack-rock 3s infinite ease-in-out;
 }
