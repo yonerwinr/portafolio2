@@ -1530,3 +1530,16 @@ section {
   color: #0077b5;
   box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
 }
+
+/* Project card buttons layout */
+.project-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.project-buttons .btn-project {
+  margin-top: 0;
+  flex: 1;
+}
