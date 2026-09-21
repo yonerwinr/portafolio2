@@ -18,7 +18,7 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=1.0.8">
+  <link rel="stylesheet" href="css/styles.css?v=1.0.9">
 </head>
 
 <body>
@@ -163,6 +163,35 @@
             <a href="https://seguridad-laboral.vercel.app/" target="_blank" class="btn-project">
               <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
             </a>
+          </div>
+        </div>
+
+        <!-- Project: Petronilo AI -->
+        <div class="project-card" style="--glow-color: rgba(6, 182, 212, 0.45)">
+          <div class="project-image-wrapper">
+            <div class="project-image-container">
+              <img src="projects/previews/petronilo.webp" alt="Petronilo AI - Copiloto Logístico Petrolero" loading="lazy">
+            </div>
+            <div class="project-image-overlay">
+              <span class="browser-url-tab">https://chatbotyon.vercel.app/</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag tag-ai" data-i18n="tag-ai">Inteligencia Artificial</span>
+              <span class="tag tag-logistic" data-i18n="tag-logistics">Logística</span>
+              <span class="tag tag-travel" data-i18n="tag-assistant">Asistente Virtual</span>
+            </div>
+            <h3><svg class="oil-pumpjack-icon" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.25em; height: 1.25em; vertical-align: middle; margin-right: 6px;"><line x1="2" y1="22" x2="22" /><polyline points="6,22 12,9 18,22" /><line x1="9" y1="15" x2="15" y2="15" /><g class="pumpjack-beam" style="transform-origin: 12px 9px;"><line x1="3" y1="9" x2="21" y2="9" /><path d="M3,9 C2,7 2,5 3,3 C4.5,4 4.5,7 3,9 Z" fill="#06b6d4" /><line x1="3" y1="9" x2="3" y2="17" /><line x1="21" y1="9" x2="19" y2="16" /></g></svg>Petronilo AI</h3>
+            <p data-i18n="project-petronilo-desc">Copiloto inteligente para la gestión de suministros e inventarios en hidrocarburos. Conectado en tiempo real a Google Sheets con +1.000 productos y cálculo automatizado de rutas óptimas entre bases operativas.</p>
+            <div class="project-buttons">
+              <a href="https://chatbotyon.vercel.app/" target="_blank" class="btn-project">
+                <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
+              </a>
+              <button type="button" class="btn-project" id="btnOpenPetroniloModal">
+                <i class="bx bx-file"></i> <span data-i18n="btn-sheet">Ficha Técnica</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -920,8 +949,108 @@
     </div>
   </div>
 
+  <!-- Petronilo AI Project Detail Modal -->
+  <div id="petroniloModal" class="project-modal-backdrop" aria-hidden="true">
+    <div class="project-modal-container">
+      <div class="project-modal-header">
+        <div class="project-modal-title-box">
+          <svg class="oil-pumpjack-icon" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.4em; height: 1.4em; vertical-align: middle; flex-shrink: 0;"><line x1="2" y1="22" x2="22" /><polyline points="6,22 12,9 18,22" /><line x1="9" y1="15" x2="15" y2="15" /><g class="pumpjack-beam" style="transform-origin: 12px 9px;"><line x1="3" y1="9" x2="21" y2="9" /><path d="M3,9 C2,7 2,5 3,3 C4.5,4 4.5,7 3,9 Z" fill="#06b6d4" /><line x1="3" y1="9" x2="3" y2="17" /><line x1="21" y1="9" x2="19" y2="16" /></g></svg>
+          <div>
+            <h3 id="petroniloModalTitle" class="project-modal-title" data-i18n="petronilo-modal-title">Petronilo AI — Ficha Técnica</h3>
+            <p class="project-modal-subtitle" data-i18n="petronilo-modal-subtitle">Copiloto Operativo Inteligente para Logística Petrolera</p>
+          </div>
+        </div>
+        <button id="petroniloModalClose" class="project-modal-close" aria-label="Cerrar modal">
+          <i class="bx bx-x"></i>
+        </button>
+      </div>
+
+      <div class="project-modal-body">
+        <!-- Banner Image -->
+        <div class="project-modal-banner">
+          <img src="projects/previews/petronilo.webp" alt="Petronilo AI" class="project-modal-banner-img">
+        </div>
+
+        <!-- Badges Strip -->
+        <div class="project-modal-badges">
+          <span class="project-badge badge-ai"><i class="bx bx-bot"></i> <span data-i18n="petronilo-badge-ai">Inteligencia Artificial</span></span>
+          <span class="project-badge badge-sheets"><i class="bx bxl-google"></i> <span data-i18n="petronilo-badge-sheets">Google Sheets en Vivo</span></span>
+          <span class="project-badge badge-stock"><i class="bx bx-package"></i> <span data-i18n="petronilo-badge-stock">+1.000 Productos Técnicos</span></span>
+          <span class="project-badge badge-geo"><i class="bx bx-map-pin"></i> <span data-i18n="petronilo-badge-geo">Geolocalización Multisede</span></span>
+        </div>
+
+        <!-- Section 1: Overview -->
+        <div class="project-modal-section">
+          <h4 class="section-subtitle" data-i18n="petronilo-sec1-title">¿Qué es Petronilo AI?</h4>
+          <p data-i18n="petronilo-sec1-p1">Petronilo AI es un asistente virtual inteligente concebido como el copiloto operativo definitivo para la gestión de inventarios y suministros en la industria de los hidrocarburos. Diseñado con una identidad cercana y profesional que representa al trabajador petrolero de campo, este software actúa como un jefe de logística y almacén disponible las veinticuatro horas del día, los siete días de la semana.</p>
+          <p data-i18n="petronilo-sec1-p2">Su propósito fundamental es transformar la manera en que las cuadrillas, supervisores y despachadores interactúan con sus existencias, sustituyendo las lentas llamadas telefónicas y los reportes dispersos por una conversación fluida, ágil y precisa que reduce al mínimo el tiempo no productivo y las costosas paradas de pozo.</p>
+          <p data-i18n="petronilo-sec1-p3">En este ejemplo de aplicación totalmente funcional, el sistema está conectado directamente y en tiempo real a una hoja de cálculo de Google Sheets en vivo con más de 1.000 productos técnicos petroleros. Cualquier cambio de existencias, ajuste de precios o ingreso de material que el equipo realice en su hoja de cálculo compartida se refleja de inmediato en las respuestas del asistente, demostrando una ventaja comercial inigualable: la empresa no necesita costosas implementaciones ni sustituir sus herramientas de trabajo actuales, ya que Petronilo se sincroniza al instante con la información viva y cotidiana del negocio.</p>
+        </div>
+
+        <!-- Section 2: Core Features -->
+        <div class="project-modal-section">
+          <h4 class="section-subtitle" data-i18n="petronilo-sec2-title">Funcionalidades Principales</h4>
+          
+          <div class="project-features-grid">
+            <div class="project-feature-card">
+              <div class="feature-icon"><i class="bx bx-current-location"></i></div>
+              <div class="feature-content">
+                <h5 data-i18n="petronilo-feat1-title">Bienvenida y Fijación de Base Operativa</h5>
+                <p data-i18n="petronilo-feat1-desc">Antes de iniciar la conversación, el sistema le permite al operador fijar su base operativa actual mediante botones táctiles de un solo toque o un menú desplegable, cubriendo puntos neurálgicos como Maracaibo, Cabimas, Ciudad Ojeda, Bachaquero y Caracas. Petronilo contextualiza automáticamente cada consulta posterior según distancias y logística.</p>
+              </div>
+            </div>
+
+            <div class="project-feature-card">
+              <div class="feature-icon"><i class="bx bx-search-alt-2"></i></div>
+              <div class="feature-content">
+                <h5 data-i18n="petronilo-feat2-title">Consulta en Lenguaje Común & Catálogo en Vivo</h5>
+                <p data-i18n="petronilo-feat2-desc">Una vez planteada la necesidad en lenguaje común, realiza una consulta instantánea sobre el catálogo de Google Sheets conectado en vivo (+1.000 ítems como válvulas de alta presión, tuberías de revestimiento o empacaduras).</p>
+              </div>
+            </div>
+
+            <div class="project-feature-card">
+              <div class="feature-icon"><i class="bx bx-trip"></i></div>
+              <div class="feature-content">
+                <h5 data-i18n="petronilo-feat3-title">Cálculo Inteligente de Rutas de Recolección</h5>
+                <p data-i18n="petronilo-feat3-desc">Calcula de forma automática la ruta de recolección más corta y económica entre las sedes de la compañía, priorizando retirar el material en la base del propio operador o trazando el recorrido óptimo entre almacenes para economizar combustible y horas de transporte.</p>
+              </div>
+            </div>
+
+            <div class="project-feature-card">
+              <div class="feature-icon"><i class="bx bx-task"></i></div>
+              <div class="feature-content">
+                <h5 data-i18n="petronilo-feat4-title">Lista Digital Interactiva de Recolección (Picking List)</h5>
+                <p data-i18n="petronilo-feat4-desc">Elimina por completo el papel en el almacén: cada producto se convierte en una tarea visual con casillas de verificación, barra de progreso en tiempo real y opción de copiar el comprobante al portapapeles con 1 clic para enviarlo por WhatsApp o correo a los transportistas.</p>
+              </div>
+            </div>
+
+            <div class="project-feature-card full-width">
+              <div class="feature-icon"><i class="bx bx-devices"></i></div>
+              <div class="feature-content">
+                <h5 data-i18n="petronilo-feat5-title">Interfaz Adaptable & Botón Flotante</h5>
+                <p data-i18n="petronilo-feat5-desc">Diseñada para operar en pantalla completa desde computadores o tablets de campo, o bien integrarse como un botón flotante / widget en la intranet o portal web de cualquier empresa petrolera.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-modal-footer">
+        <a href="https://chatbotyon.vercel.app/" target="_blank" class="btn-modal-action btn-modal-visit">
+          <i class="bx bx-link-external"></i> <span data-i18n="btn-visit">Visitar Sitio</span>
+        </a>
+        <a href="https://wa.me/584246830501?text=Hola%20Yonerwin,%20estoy%20interesado%20en%20conocer%20m%C3%A1s%20sobre%20Petronilo%20AI" target="_blank" class="btn-modal-action btn-modal-whatsapp">
+          <i class="bx bxl-whatsapp"></i> <span data-i18n="petronilo-btn-whatsapp">Consultar por WhatsApp</span>
+        </a>
+        <button type="button" id="petroniloModalCloseFooter" class="btn-modal-action btn-modal-secondary">
+          <span data-i18n="petronilo-btn-close">Cerrar Ficha</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/main.js?v=1.0.8"></script>
+  <script src="js/main.js?v=1.0.9"></script>
 </body>
 
 </html>

@@ -37,6 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
       "more-projects-desc": "Visita mi perfil de GitHub con más repositorios de código abierto, algoritmos y herramientas interactivas.",
       "project-facilitoapp-desc": "Ecosistema omnicanal de Punto de Venta (POS) y E-commerce con control de inventario en tiempo real, protección cambiaria automatizada y respaldo paralelo en Google Sheets.",
       "project-seguridad-desc": "Sistema de visión artificial para la detección de Equipo de Protección Personal (PPE) en tiempo real, con bitácora de incidentes y notificaciones automáticas vía Slack.",
+      "project-petronilo-desc": "Copiloto inteligente para la gestión de suministros e inventarios en hidrocarburos. Conectado en tiempo real a Google Sheets con +1.000 productos y cálculo automatizado de rutas óptimas entre bases operativas.",
+      "petronilo-modal-title": "Petronilo AI — Ficha Técnica",
+      "petronilo-modal-subtitle": "Copiloto Operativo Inteligente para Logística Petrolera",
+      "petronilo-badge-ai": "Inteligencia Artificial",
+      "petronilo-badge-sheets": "Google Sheets en Vivo",
+      "petronilo-badge-stock": "+1.000 Productos Técnicos",
+      "petronilo-badge-geo": "Geolocalización Multisede",
+      "petronilo-sec1-title": "¿Qué es Petronilo AI?",
+      "petronilo-sec1-p1": "Petronilo AI es un asistente virtual inteligente concebido como el copiloto operativo definitivo para la gestión de inventarios y suministros en la industria de los hidrocarburos. Diseñado con una identidad cercana y profesional que representa al trabajador petrolero de campo, este software actúa como un jefe de logística y almacén disponible las veinticuatro horas del día, los siete días de la semana.",
+      "petronilo-sec1-p2": "Su propósito fundamental es transformar la manera en que las cuadrillas, supervisores y despachadores interactúan con sus existencias, sustituyendo las lentas llamadas telefónicas y los reportes dispersos por una conversación fluida, ágil y precisa que reduce al mínimo el tiempo no productivo y las costosas paradas de pozo.",
+      "petronilo-sec1-p3": "En este ejemplo de aplicación totalmente funcional, el sistema está conectado directamente y en tiempo real a una hoja de cálculo de Google Sheets en vivo con más de 1.000 productos técnicos petroleros. Esto significa que cualquier cambio de existencias, ajuste de precios o ingreso de material que el equipo realice en su hoja de cálculo compartida se refleja de inmediato en las respuestas del asistente, demostrando una ventaja comercial inigualable: la empresa no necesita costosas implementaciones ni sustituir sus herramientas de trabajo actuales, ya que Petronilo se sincroniza al instante con la información viva y cotidiana del negocio.",
+      "petronilo-sec2-title": "Funcionalidades Principales",
+      "petronilo-feat1-title": "Bienvenida y Fijación de Base Operativa",
+      "petronilo-feat1-desc": "Antes de iniciar la conversación, el sistema le permite al operador fijar su base operativa actual mediante botones táctiles de un solo toque o un menú desplegable, cubriendo puntos neurálgicos como Maracaibo, Cabimas, Ciudad Ojeda, Bachaquero y Caracas. Petronilo contextualiza automáticamente cada consulta posterior según distancias y logística.",
+      "petronilo-feat2-title": "Consulta en Lenguaje Común & Catálogo en Vivo",
+      "petronilo-feat2-desc": "Una vez planteada la necesidad en lenguaje común, realiza una consulta instantánea sobre el catálogo de Google Sheets conectado en vivo (+1.000 ítems como válvulas de alta presión, tuberías de revestimiento o empacaduras).",
+      "petronilo-feat3-title": "Cálculo Inteligente de Rutas de Recolección",
+      "petronilo-feat3-desc": "Calcula de forma automática la ruta de recolección más corta y económica entre las sedes de la compañía, priorizando retirar el material en la base del propio operador o trazando el recorrido óptimo entre almacenes para economizar combustible y horas de transporte.",
+      "petronilo-feat4-title": "Lista Digital Interactiva de Recolección (Picking List)",
+      "petronilo-feat4-desc": "Elimina por completo el papel en el almacén: cada producto se convierte en una tarea visual con casillas de verificación, barra de progreso en tiempo real y opción de copiar el comprobante al portapapeles con 1 clic para enviarlo por WhatsApp o correo a los transportistas.",
+      "petronilo-feat5-title": "Interfaz Adaptable & Botón Flotante",
+      "petronilo-feat5-desc": "Diseñada para operar en pantalla completa desde computadores o tablets de campo, o bien integrarse como un botón flotante / widget en la intranet o portal web de cualquier empresa petrolera.",
+      "petronilo-btn-github": "Ver Repositorio GitHub",
+      "petronilo-btn-whatsapp": "Consultar por WhatsApp",
+      "petronilo-btn-close": "Cerrar Ficha",
       "project-anomalias-desc": "Detección de anomalías en oleoductos mediante Machine Learning para identificar fugas, pérdidas de presión y tomas clandestinas de combustible en tiempo real.",
       "project-yonwell-desc": "Asistente inteligente (Versión Demo) para la inspección de seguridad y validación de terreno en pozos petroleros y de agua, con análisis cromático de suelo y nivelación mediante sensores.",
       "project-travelvzla-desc": "Agencia de viajes con soluciones integrales en boletería, hospedajes, transporte terrestre y seguros de viajes.",
@@ -162,6 +187,31 @@ document.addEventListener('DOMContentLoaded', () => {
       "more-projects-desc": "Visit my GitHub profile with more open-source repositories, algorithms, and interactive tools.",
       "project-facilitoapp-desc": "Omnichannel POS and E-commerce ecosystem featuring real-time inventory synchronization, automated currency protection, and parallel cloud backups to Google Sheets.",
       "project-seguridad-desc": "Computer vision system for real-time Personal Protective Equipment (PPE) detection, featuring incident logging and automatic Slack notifications.",
+      "project-petronilo-desc": "Intelligent virtual copilot for oil & gas supply and inventory management. Connected in real time to Google Sheets with 1,000+ products and automated optimal route calculation between operational bases.",
+      "petronilo-modal-title": "Petronilo AI — Technical Sheet",
+      "petronilo-modal-subtitle": "Intelligent Operational Copilot for Oil & Gas Logistics",
+      "petronilo-badge-ai": "Artificial Intelligence",
+      "petronilo-badge-sheets": "Live Google Sheets Sync",
+      "petronilo-badge-stock": "1,000+ Technical Products",
+      "petronilo-badge-geo": "Multi-Base Geolocation",
+      "petronilo-sec1-title": "What is Petronilo AI?",
+      "petronilo-sec1-p1": "Petronilo AI is an intelligent virtual assistant conceived as the definitive operational copilot for inventory and supply management in the hydrocarbon industry. Designed with an approachable and professional identity representing field petroleum personnel, it acts as a 24/7 logistics and warehouse supervisor.",
+      "petronilo-sec1-p2": "Its fundamental purpose is to transform how field crews, supervisors, and dispatchers interact with their stock—replacing slow phone calls and fragmented reports with a fluid, accurate conversation that minimizes non-productive time and costly well shutdowns.",
+      "petronilo-sec1-p3": "In this fully functional application example, the system connects directly in real time to a live Google Spreadsheet with over 1,000 technical petroleum items. Any stock modification, price update, or incoming shipment is instantly reflected in assistant responses without requiring costly enterprise software overhauls.",
+      "petronilo-sec2-title": "Core Features",
+      "petronilo-feat1-title": "Operational Base Geolocation & Onboarding",
+      "petronilo-feat1-desc": "Before starting the conversation, operators can select their operational base via one-touch buttons or dropdowns covering strategic hubs such as Maracaibo, Cabimas, Ciudad Ojeda, Bachaquero, and Caracas. Queries are automatically contextualized based on proximity and logistics.",
+      "petronilo-feat2-title": "Natural Language Search on Live Catalog",
+      "petronilo-feat2-desc": "Instant queries in plain language across 1,000+ technical items (high-pressure valves, casing pipes, packers, etc.) confirming stock availability in milliseconds.",
+      "petronilo-feat3-title": "Intelligent Route & Dispatch Optimization",
+      "petronilo-feat3-desc": "Calculates the shortest, most cost-effective collection route across company bases, prioritizing local pickup or plotting optimal multi-stop routes to save fuel and reduce fleet wear.",
+      "petronilo-feat4-title": "Paperless Digital Picking List",
+      "petronilo-feat4-desc": "Completely eliminates paper in the warehouse: converts order items into an interactive visual checklist with real-time progress tracking and one-click clipboard copying for fast WhatsApp or email dispatch.",
+      "petronilo-feat5-title": "Versatile Integration & Field-Ready UI",
+      "petronilo-feat5-desc": "Fully responsive interface for full-screen field tablets/laptops or embeddable as a floating copilot widget on enterprise intranets and portals.",
+      "petronilo-btn-github": "View GitHub Repository",
+      "petronilo-btn-whatsapp": "Inquire via WhatsApp",
+      "petronilo-btn-close": "Close Sheet",
       "project-anomalias-desc": "Machine Learning system for oil pipeline anomaly detection to identify leaks, pressure losses, and clandestine fuel tapping in real-time.",
       "project-yonwell-desc": "Intelligent assistant (Demo Version) for safety inspection and terrain validation in oil and water wells, featuring soil color analysis and sensor-based leveling.",
       "project-travelvzla-desc": "Travel agency offering comprehensive solutions in ticketing, lodging, land transportation, and travel insurance.",
@@ -612,9 +662,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- 9. Modal de Ficha Técnica de Petronilo AI ---
+  const petroniloModal = document.getElementById('petroniloModal');
+  const petroniloModalClose = document.getElementById('petroniloModalClose');
+  const petroniloModalCloseFooter = document.getElementById('petroniloModalCloseFooter');
+  const btnOpenPetroniloModal = document.getElementById('btnOpenPetroniloModal');
+  const petroniloCardTriggers = document.querySelectorAll('.trigger-petronilo-modal');
+
+  function openPetroniloModal() {
+    if (!petroniloModal) return;
+    petroniloModal.classList.add('active');
+    petroniloModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePetroniloModal() {
+    if (!petroniloModal) return;
+    petroniloModal.classList.remove('active');
+    petroniloModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (btnOpenPetroniloModal) {
+    btnOpenPetroniloModal.addEventListener('click', openPetroniloModal);
+  }
+
+  petroniloCardTriggers.forEach(trigger => {
+    trigger.addEventListener('click', openPetroniloModal);
+  });
+
+  if (petroniloModalClose) {
+    petroniloModalClose.addEventListener('click', closePetroniloModal);
+  }
+
+  if (petroniloModalCloseFooter) {
+    petroniloModalCloseFooter.addEventListener('click', closePetroniloModal);
+  }
+
+  if (petroniloModal) {
+    petroniloModal.addEventListener('click', (e) => {
+      if (e.target === petroniloModal) {
+        closePetroniloModal();
+      }
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && certModal && certModal.classList.contains('active')) {
-      closeCertModal();
+    if (e.key === 'Escape') {
+      if (certModal && certModal.classList.contains('active')) {
+        closeCertModal();
+      }
+      if (petroniloModal && petroniloModal.classList.contains('active')) {
+        closePetroniloModal();
+      }
     }
   });
 });
+
