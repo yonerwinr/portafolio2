@@ -18,7 +18,7 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=1.0.7">
+  <link rel="stylesheet" href="css/styles.css?v=1.0.8">
 </head>
 
 <body>
@@ -51,14 +51,14 @@
           <button class="btn-lang btn-lang-mobile"><i class="bx bx-globe"></i> EN</button>
         </li>
         <li class="mobile-only">
-          <a href="CV Ing Yonerwin Rodriguez.pdf" download="CV_Yonerwin_Rodriguez.pdf" class="btn-cv">
+          <a href="CV Ing Yonerwin Rodriguez.pdf?v=2.0" download="CV_Yonerwin_Rodriguez.pdf" target="_blank" class="btn-cv">
             <i class="bx bx-download"></i> <span data-i18n="nav-cv">Descargar CV</span>
           </a>
         </li>
       </ul>
       <div class="nav-right">
         <button id="langToggle" class="btn-lang"><i class="bx bx-globe"></i> EN</button>
-        <a href="CV Ing Yonerwin Rodriguez.pdf" download="CV_Yonerwin_Rodriguez.pdf" class="btn-cv" id="cvLink">
+        <a href="CV Ing Yonerwin Rodriguez.pdf?v=2.0" download="CV_Yonerwin_Rodriguez.pdf" target="_blank" class="btn-cv" id="cvLink">
           <i class="bx bx-download"></i> <span data-i18n="nav-cv">Descargar CV</span>
         </a>
         <button class="nav-toggle" id="menuToggle" aria-label="Abrir menú">
@@ -579,6 +579,9 @@
                 <h4>Freelance</h4>
                 <p class="institution" data-i18n="exp-role-0">Desarrollador Web</p>
               </div>
+              <div class="company-logo-wrapper">
+                <img src="upwork_logo.svg" alt="Logo Upwork" class="company-logo upwork-logo" loading="lazy">
+              </div>
             </div>
             <ul>
               <li data-i18n="exp-task-0-1">Desarrollo de sitios y aplicaciones web a medida para distintos clientes, adaptándome a sus necesidades y objetivos.</li>
@@ -708,6 +711,7 @@
       <h2 class="section-title" data-i18n="edu-title">Educación & Certificaciones</h2>
       <div class="education-grid">
 
+        <!-- 1. Bootcamp IA sector Petrolero -->
         <div class="education-card glass-panel reveal" style="--card-glow: rgba(245, 158, 11, 0.25)">
           <div class="edu-icon" style="color: #f59e0b;"><i class="bx bx-certification"></i></div>
           <span class="edu-date" data-i18n="edu-date-1">Febrero 2026 - Abril 2026</span>
@@ -715,8 +719,66 @@
           <p class="edu-institution">Universidad del Zulia (LUZ)</p>
           <p class="edu-desc" data-i18n="edu-desc-1">Formación avanzada en Machine Learning, análisis de datos y redes
             neuronales aplicadas a la optimización de operaciones energéticas.</p>
+          
+          <div class="cert-toggle-wrapper">
+            <button class="btn-cert-toggle" type="button" aria-expanded="false">
+              <i class="bx bx-image-alt"></i>
+              <span class="toggle-text" data-i18n="btn-toggle-cert-show">Desplegar Certificado</span>
+              <i class="bx bx-chevron-down toggle-arrow"></i>
+            </button>
+            <div class="cert-expandable-content">
+              <div class="cert-preview-card" data-modal-img="certificados/cyti-bootcamp-ia.jpg" data-modal-title="Bootcamp IA sector Petrolero - Universidad del Zulia (LUZ)">
+                <picture>
+                  <source srcset="certificados/cyti-bootcamp-ia.webp" type="image/webp">
+                  <img src="certificados/cyti-bootcamp-ia.jpg" alt="Certificado Bootcamp IA Sector Petrolero - LUZ" class="cert-preview-img" loading="lazy">
+                </picture>
+                <div class="cert-preview-actions">
+                  <button type="button" class="btn-cert-action view-btn" data-modal-img="certificados/cyti-bootcamp-ia.jpg" data-modal-title="Bootcamp IA sector Petrolero - Universidad del Zulia (LUZ)">
+                    <i class="bx bx-fullscreen"></i> <span data-i18n="btn-cert-expand">Ver pantalla completa</span>
+                  </button>
+                  <a href="certificados/cyti-bootcamp-ia.jpg" target="_blank" download="Certificado_Bootcamp_IA_Petrolero_LUZ.jpg" class="btn-cert-action download-btn" title="Descargar Certificado">
+                    <i class="bx bx-download"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
+        <!-- 2. Petroleum Engineering Principles and Concepts -->
+        <div class="education-card glass-panel reveal" style="--card-glow: rgba(16, 185, 129, 0.25)">
+          <div class="edu-icon" style="color: #10b981;"><i class="bx bxs-gas-pump"></i></div>
+          <span class="edu-date" data-i18n="edu-date-4">Septiembre 2026</span>
+          <h3 data-i18n="edu-title-4">Principios y Conceptos de Ingeniería Petrolera</h3>
+          <p class="edu-institution" data-i18n="edu-institution-4">Alison / CPD Certified</p>
+          <p class="edu-desc" data-i18n="edu-desc-4">Formación certificada sobre los principios y conceptos fundamentales de la ingeniería petrolera: exploración, perforación, reservorios, producción y gestión operativa.</p>
+          
+          <div class="cert-toggle-wrapper">
+            <button class="btn-cert-toggle" type="button" aria-expanded="false">
+              <i class="bx bx-image-alt"></i>
+              <span class="toggle-text" data-i18n="btn-toggle-cert-show">Desplegar Certificado</span>
+              <i class="bx bx-chevron-down toggle-arrow"></i>
+            </button>
+            <div class="cert-expandable-content">
+              <div class="cert-preview-card" data-modal-img="certificados/alison-petroleum-engineering.jpg" data-modal-title="Petroleum Engineering Principles and Concepts - Alison">
+                <picture>
+                  <source srcset="certificados/alison-petroleum-engineering.webp" type="image/webp">
+                  <img src="certificados/alison-petroleum-engineering.jpg" alt="Certificado Petroleum Engineering Principles and Concepts - Alison" class="cert-preview-img" loading="lazy">
+                </picture>
+                <div class="cert-preview-actions">
+                  <button type="button" class="btn-cert-action view-btn" data-modal-img="certificados/alison-petroleum-engineering.jpg" data-modal-title="Petroleum Engineering Principles and Concepts - Alison">
+                    <i class="bx bx-fullscreen"></i> <span data-i18n="btn-cert-expand">Ver pantalla completa</span>
+                  </button>
+                  <a href="certificados/alison-petroleum-engineering.jpg" target="_blank" download="Certificado_Petroleum_Engineering_Alison.jpg" class="btn-cert-action download-btn" title="Descargar Certificado">
+                    <i class="bx bx-download"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Ingeniería de Informática -->
         <div class="education-card glass-panel reveal" style="--card-glow: rgba(99, 102, 241, 0.25)">
           <div class="edu-icon" style="color: #6366f1;"><i class="bx bxs-graduation"></i></div>
           <span class="edu-date" data-i18n="edu-date-2">Enero 2020 - Abril 2025</span>
@@ -726,8 +788,9 @@
             software, algoritmos avanzados y diseño de arquitecturas de bases de datos.</p>
         </div>
 
-        <div class="education-card glass-panel reveal" style="--card-glow: rgba(16, 185, 129, 0.25)">
-          <div class="edu-icon" style="color: #10b981;"><i class="bx bx-world"></i></div>
+        <!-- 4. Curso de Inglés -->
+        <div class="education-card glass-panel reveal" style="--card-glow: rgba(6, 182, 212, 0.25)">
+          <div class="edu-icon" style="color: #06b6d4;"><i class="bx bx-world"></i></div>
           <span class="edu-date" data-i18n="edu-date-3">Agosto 2024 - Actualidad</span>
           <h3 data-i18n="edu-title-3">Curso de Inglés (Nivel B2)</h3>
           <p class="edu-institution">Centro Venezolano Americano del Zulia (CEVAZ)</p>
@@ -837,8 +900,28 @@
     <i class="bx bxl-whatsapp"></i>
   </a>
 
+  <!-- Certificate Lightbox Modal -->
+  <div id="certModal" class="cert-modal-backdrop" aria-hidden="true">
+    <div class="cert-modal-container">
+      <div class="cert-modal-header">
+        <h3 id="certModalTitle" class="cert-modal-title">Certificado</h3>
+        <button id="certModalClose" class="cert-modal-close" aria-label="Cerrar modal">
+          <i class="bx bx-x"></i>
+        </button>
+      </div>
+      <div class="cert-modal-body">
+        <img id="certModalImg" src="" alt="Certificado en alta resolución" class="cert-modal-img">
+      </div>
+      <div class="cert-modal-footer">
+        <a id="certModalDownload" href="#" download class="btn-modal-action">
+          <i class="bx bx-download"></i> <span data-i18n="btn-download-cert">Descargar Certificado</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=1.0.8"></script>
 </body>
 
 </html>

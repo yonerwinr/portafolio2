@@ -106,6 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
       "edu-date-3": "Agosto 2024 - Actualidad",
       "edu-title-3": "Curso de Inglés (Nivel B2)",
       "edu-desc-3": "Estudios continuos del idioma inglés, logrando fluidez comunicativa y técnica.",
+      "edu-date-4": "Septiembre 2026",
+      "edu-title-4": "Principios y Conceptos de Ingeniería Petrolera",
+      "edu-institution-4": "Alison / CPD Certified",
+      "edu-desc-4": "Formación certificada sobre los principios y conceptos fundamentales de la ingeniería petrolera: exploración, perforación, reservorios, producción y gestión operativa.",
+      "btn-toggle-cert-show": "Desplegar Certificado",
+      "btn-toggle-cert-hide": "Ocultar Certificado",
+      "btn-cert-expand": "Ver pantalla completa",
+      "btn-download-cert": "Descargar Certificado",
       "contact-title": "Contáctame",
       "contact-subtitle": "¿Tienes un proyecto en mente?",
       "contact-desc": "Estoy disponible para integrarme a equipos de desarrollo o cooperar en el diseño de soluciones de software a medida. ¡Hablemos directamente por WhatsApp!",
@@ -223,6 +231,14 @@ document.addEventListener('DOMContentLoaded', () => {
       "edu-date-3": "August 2024 - Present",
       "edu-title-3": "English Course (B2 Level)",
       "edu-desc-3": "Ongoing English language studies, achieving communicative and technical fluency.",
+      "edu-date-4": "September 2026",
+      "edu-title-4": "Petroleum Engineering Principles and Concepts",
+      "edu-institution-4": "Alison / CPD Certified",
+      "edu-desc-4": "Certified training on core petroleum engineering principles and concepts: exploration, well drilling, reservoirs, production operations, and industrial HSE management.",
+      "btn-toggle-cert-show": "View Certificate",
+      "btn-toggle-cert-hide": "Hide Certificate",
+      "btn-cert-expand": "View Full Screen",
+      "btn-download-cert": "Download Certificate",
       "contact-title": "Contact Me",
       "contact-subtitle": "Have a project in mind?",
       "contact-desc": "I am available to join development teams or cooperate in the design of custom software solutions. Let's talk directly on WhatsApp!",
@@ -511,4 +527,94 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   }
+
+  // --- 8. Desplegar Certificados y Visor Modal ---
+  const certToggleBtns = document.querySelectorAll('.btn-cert-toggle');
+  certToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.classList.contains('active');
+      const content = btn.parentElement.querySelector('.cert-expandable-content');
+      const textSpan = btn.querySelector('.toggle-text');
+
+      if (!isExpanded) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        if (content) content.classList.add('active');
+        if (textSpan) {
+          textSpan.setAttribute('data-i18n', 'btn-toggle-cert-hide');
+          textSpan.textContent = (translations[currentLang] && translations[currentLang]['btn-toggle-cert-hide']) || 'Ocultar Certificado';
+        }
+      } else {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+        if (content) content.classList.remove('active');
+        if (textSpan) {
+          textSpan.setAttribute('data-i18n', 'btn-toggle-cert-show');
+          textSpan.textContent = (translations[currentLang] && translations[currentLang]['btn-toggle-cert-show']) || 'Desplegar Certificado';
+        }
+      }
+    });
+  });
+
+  // Modal de Certificados
+  const certModal = document.getElementById('certModal');
+  const certModalImg = document.getElementById('certModalImg');
+  const certModalTitle = document.getElementById('certModalTitle');
+  const certModalDownload = document.getElementById('certModalDownload');
+  const certModalClose = document.getElementById('certModalClose');
+
+  function openCertModal(imgSrc, titleText) {
+    if (!certModal || !certModalImg) return;
+    certModalImg.src = imgSrc;
+    certModalImg.alt = titleText || 'Certificado';
+    if (certModalTitle) {
+      certModalTitle.textContent = titleText || (currentLang === 'es' ? 'Certificado' : 'Certificate');
+    }
+    if (certModalDownload) {
+      certModalDownload.href = imgSrc;
+      const cleanTitle = (titleText || 'Certificado').replace(/[^a-zA-Z0-9_-]/g, '_');
+      certModalDownload.setAttribute('download', `${cleanTitle}.jpg`);
+    }
+    certModal.classList.add('active');
+    certModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCertModal() {
+    if (!certModal) return;
+    certModal.classList.remove('active');
+    certModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Eventos para abrir modal al hacer clic en la tarjeta de previsualización o botón de ampliar
+  document.querySelectorAll('.cert-preview-card, .btn-cert-action.view-btn').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      if (e.target.closest('.download-btn')) return;
+
+      const modalImg = trigger.getAttribute('data-modal-img') || trigger.closest('[data-modal-img]')?.getAttribute('data-modal-img');
+      const modalTitle = trigger.getAttribute('data-modal-title') || trigger.closest('[data-modal-title]')?.getAttribute('data-modal-title');
+      if (modalImg) {
+        openCertModal(modalImg, modalTitle);
+      }
+    });
+  });
+
+  if (certModalClose) {
+    certModalClose.addEventListener('click', closeCertModal);
+  }
+
+  if (certModal) {
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) {
+        closeCertModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && certModal && certModal.classList.contains('active')) {
+      closeCertModal();
+    }
+  });
 });
