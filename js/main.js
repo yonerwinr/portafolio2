@@ -327,34 +327,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // Variables de control de idioma
   let currentLang = localStorage.getItem('portfolioLang') || 'es';
 
-  // --- 1. Cursor Personalizado ---
+  // --- 1. Cursor Personalizado (Optimizado con RAF y Translate3d) ---
   const cursor = document.querySelector('.custom-cursor');
   const cursorDot = document.querySelector('.custom-cursor-dot');
 
   if (cursor && cursorDot) {
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
+    let mouseX = -100;
+    let mouseY = -100;
+    let cursorRafPending = false;
 
-      cursorDot.style.left = `${e.clientX}px`;
-      cursorDot.style.top = `${e.clientY}px`;
-    });
+    function renderCursor() {
+      cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      cursorRafPending = false;
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!cursorRafPending) {
+        cursorRafPending = true;
+        requestAnimationFrame(renderCursor);
+      }
+    }, { passive: true });
 
     // Añadir escala al pasar sobre elementos interactivos
-    const hoverElements = document.querySelectorAll('a, button, .project-item, select, input, textarea');
+    const hoverElements = document.querySelectorAll('a, button, .project-card, .btn-project, select, input, textarea');
     hoverElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursor.style.width = '40px';
-        cursor.style.height = '40px';
-        cursor.style.backgroundColor = 'rgba(99, 102, 241, 0.1)';
-        cursor.style.borderColor = 'var(--cyan)';
-      });
+        cursor.classList.add('cursor-hover');
+      }, { passive: true });
       el.addEventListener('mouseleave', () => {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-        cursor.style.backgroundColor = 'transparent';
-        cursor.style.borderColor = 'var(--primary)';
-      });
+        cursor.classList.remove('cursor-hover');
+      }, { passive: true });
     });
   }
 
@@ -397,34 +402,50 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(type, 1000);
   }
 
-  // --- 3. Inclinación 3D y Efecto de Brillo en Tarjetas de Proyectos ---
+  // --- 3. Inclinación 3D y Efecto de Brillo en Tarjetas (Optimizado a 60-120fps) ---
   const projectCards = document.querySelectorAll('.project-card');
 
   if (projectCards.length > 0) {
     projectCards.forEach(card => {
+      let rect = null;
+      let cardRafId = null;
+
+      card.addEventListener('mouseenter', () => {
+        rect = card.getBoundingClientRect(); // Cachear dimensiones solo al entrar
+      }, { passive: true });
+
       card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        if (!rect) rect = card.getBoundingClientRect();
 
-        const xPercent = (x / rect.width) * 100;
-        const yPercent = (y / rect.height) * 100;
-        card.style.setProperty('--mouse-x', `${xPercent}%`);
-        card.style.setProperty('--mouse-y', `${yPercent}%`);
+        const clientX = e.clientX;
+        const clientY = e.clientY;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = -(y - centerY) / 12;
-        const rotateY = (x - centerX) / 15;
+        if (cardRafId) cancelAnimationFrame(cardRafId);
+        cardRafId = requestAnimationFrame(() => {
+          const x = clientX - rect.left;
+          const y = clientY - rect.top;
 
-        card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
+          const xPercent = (x / rect.width) * 100;
+          const yPercent = (y / rect.height) * 100;
+          card.style.setProperty('--mouse-x', `${xPercent}%`);
+          card.style.setProperty('--mouse-y', `${yPercent}%`);
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (-(y - centerY) / 20).toFixed(2);
+          const rotateY = ((x - centerX) / 24).toFixed(2);
+
+          card.style.transform = `translate3d(0, -6px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+      }, { passive: true });
 
       card.addEventListener('mouseleave', () => {
+        if (cardRafId) cancelAnimationFrame(cardRafId);
+        rect = null;
         card.style.transform = '';
         card.style.setProperty('--mouse-x', '50%');
         card.style.setProperty('--mouse-y', '50%');
-      });
+      }, { passive: true });
     });
   }
 

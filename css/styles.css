@@ -67,26 +67,38 @@ body {
 /* Custom Cursor */
 .custom-cursor {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 20px;
   height: 20px;
   border: 2px solid var(--primary);
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
   z-index: 9999;
-  transition: width 0.15s, height 0.15s, border-color 0.15s, background-color 0.15s;
-  pointer-events: none;
+  transition: width 0.15s ease, height 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+  will-change: transform;
+}
+
+.custom-cursor.cursor-hover {
+  width: 38px;
+  height: 38px;
+  background-color: rgba(99, 102, 241, 0.12);
+  border-color: var(--cyan);
 }
 
 .custom-cursor-dot {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 4px;
   height: 4px;
   background-color: var(--cyan);
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
   z-index: 10000;
+  will-change: transform;
 }
 
 @media (max-width: 1024px) {
@@ -97,22 +109,20 @@ body {
   }
 }
 
-/* Glassmorphism Common */
+/* Glassmorphism Common (Optimized for High Performance) */
 .glass-panel {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(13, 20, 36, 0.78);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  transition: var(--transition);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .glass-panel:hover {
-  border-color: rgba(99, 102, 241, 0.25);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Background Gradients (Atmosphere) */
+/* Background Gradients (Atmosphere - GPU Isolated) */
 .bg-glow-1 {
   position: absolute;
   top: 10%;
@@ -122,6 +132,9 @@ body {
   background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0) 70%);
   z-index: -1;
   pointer-events: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  contain: paint;
 }
 
 .bg-glow-2 {
@@ -133,6 +146,9 @@ body {
   background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, rgba(6, 182, 212, 0) 70%);
   z-index: -1;
   pointer-events: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  contain: paint;
 }
 
 /* Layout Containers */
@@ -639,20 +655,19 @@ section {
 
 /* Project Card */
 .project-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(13, 20, 36, 0.82);
   border: 1px solid var(--border-color);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-              border-color 0.5s ease,
-              box-shadow 0.5s ease;
+  transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
   position: relative;
   transform-style: preserve-3d;
   perspective: 1000px;
+  will-change: transform;
 }
 
 .project-card::before {
@@ -664,7 +679,7 @@ section {
   bottom: 0;
   background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--glow-color, rgba(99, 102, 241, 0.15)) 0%, transparent 60%);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.35s ease;
   pointer-events: none;
   z-index: 1;
 }
@@ -702,7 +717,8 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
 }
 
 .project-card:hover .project-image-container img {
@@ -715,14 +731,12 @@ section {
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.94);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 4px 16px;
   border-radius: 20px;
   opacity: 0;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   pointer-events: none;
   z-index: 5;
 }
@@ -891,6 +905,8 @@ section {
 .skills-track {
   display: flex;
   width: max-content;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 .skills-group {
@@ -899,13 +915,13 @@ section {
   padding-right: 20px;
 }
 
-/* Animaciones para las filas */
+/* Animaciones para las filas (Optimizadas en GPU) */
 .marquee-left .skills-track {
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 32s linear infinite;
 }
 
 .marquee-right .skills-track {
-  animation: scroll-right 30s linear infinite;
+  animation: scroll-right 32s linear infinite;
 }
 
 /* Pausar animación al pasar el mouse */
@@ -924,11 +940,12 @@ section {
   justify-content: center;
   gap: 12px;
   flex-shrink: 0;
+  contain: content;
 }
 
 .skill-icon {
   font-size: 2.2rem;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .skill-card:hover .skill-icon {
@@ -942,19 +959,19 @@ section {
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes scroll-right {
   0% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -1115,13 +1132,12 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   padding: 6px 10px;
   width: 180px;
   height: 65px;
-  backdrop-filter: blur(4px);
   transition: var(--transition);
 }
 
@@ -2140,19 +2156,18 @@ section {
 
 /* Tarjeta Ver Más Proyectos (ocupa los 2 espacios restantes en PC) */
 .more-projects-card {
-  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, rgba(15, 23, 42, 0.45) 100%);
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.12) 0%, rgba(13, 20, 36, 0.85) 100%);
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 30px;
   position: relative;
   overflow: hidden;
-  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  will-change: transform;
 }
 
 .more-projects-card:hover {
@@ -2215,10 +2230,8 @@ section {
   gap: 12px;
   padding: 12px 24px 12px 16px;
   border-radius: 60px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.06);
   border: 1.5px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   color: var(--white);
   text-decoration: none;
   font-weight: 600;
@@ -2359,4 +2372,6 @@ section {
 
 .oil-pumpjack-icon .pumpjack-beam {
   animation: pumpjack-rock 3s infinite ease-in-out;
+  transform-box: fill-box;
+  will-change: transform;
 }
