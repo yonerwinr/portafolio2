@@ -139,9 +139,16 @@ document.addEventListener('DOMContentLoaded', () => {
       "edu-title-5": "La planificación estratégica en la era de la IA",
       "edu-institution-5": "HP LIFE / HP Foundation",
       "edu-desc-5": "Capacitación oficial de HP LIFE sobre el uso de la planificación estratégica y herramientas de Inteligencia Artificial para la toma de decisiones empresariales, análisis competitivo y evaluación de marcos estratégicos.",
+      "edu-date-6": "Octubre 2026",
+      "edu-title-6": "Introduction to Generative AI",
+      "edu-institution-6": "Google Cloud / Google Skills",
+      "edu-desc-6": "Insignia oficial otorgada por Google Cloud que certifica competencias fundamentales en Inteligencia Artificial Generativa, modelos fundacionales, aplicaciones prácticas y herramientas de Google para el desarrollo de soluciones basadas en IA.",
       "btn-toggle-cert-show": "Desplegar Certificado",
       "btn-toggle-cert-hide": "Ocultar Certificado",
+      "btn-toggle-badge-show": "Desplegar Insignia",
+      "btn-toggle-badge-hide": "Ocultar Insignia",
       "btn-cert-expand": "Ver pantalla completa",
+      "btn-cert-verify": "Verificar Insignia",
       "btn-download-cert": "Descargar Certificado",
       "contact-title": "Contáctame",
       "contact-subtitle": "¿Tienes un proyecto en mente?",
@@ -293,9 +300,16 @@ document.addEventListener('DOMContentLoaded', () => {
       "edu-title-5": "Strategic Planning in the Era of AI",
       "edu-institution-5": "HP LIFE / HP Foundation",
       "edu-desc-5": "Official HP LIFE training on applying strategic planning and Artificial Intelligence tools for business decision-making, competitive analysis, and strategic framework evaluation.",
+      "edu-date-6": "October 2026",
+      "edu-title-6": "Introduction to Generative AI",
+      "edu-institution-6": "Google Cloud / Google Skills",
+      "edu-desc-6": "Official Google Cloud badge certifying foundational competencies in Generative AI, foundation models, practical applications, and Google tools for developing AI-powered solutions.",
       "btn-toggle-cert-show": "View Certificate",
       "btn-toggle-cert-hide": "Hide Certificate",
+      "btn-toggle-badge-show": "View Badge",
+      "btn-toggle-badge-hide": "Hide Badge",
       "btn-cert-expand": "View Full Screen",
+      "btn-cert-verify": "Verify Badge",
       "btn-download-cert": "Download Certificate",
       "contact-title": "Contact Me",
       "contact-subtitle": "Have a project in mind?",
@@ -620,16 +634,18 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.setAttribute('aria-expanded', 'true');
         if (content) content.classList.add('active');
         if (textSpan) {
-          textSpan.setAttribute('data-i18n', 'btn-toggle-cert-hide');
-          textSpan.textContent = (translations[currentLang] && translations[currentLang]['btn-toggle-cert-hide']) || 'Ocultar Certificado';
+          const hideKey = textSpan.getAttribute('data-i18n-hide') || 'btn-toggle-cert-hide';
+          textSpan.setAttribute('data-i18n', hideKey);
+          textSpan.textContent = (translations[currentLang] && translations[currentLang][hideKey]) || (currentLang === 'es' ? 'Ocultar' : 'Hide');
         }
       } else {
         btn.classList.remove('active');
         btn.setAttribute('aria-expanded', 'false');
         if (content) content.classList.remove('active');
         if (textSpan) {
-          textSpan.setAttribute('data-i18n', 'btn-toggle-cert-show');
-          textSpan.textContent = (translations[currentLang] && translations[currentLang]['btn-toggle-cert-show']) || 'Desplegar Certificado';
+          const showKey = textSpan.getAttribute('data-i18n-show') || 'btn-toggle-cert-show';
+          textSpan.setAttribute('data-i18n', showKey);
+          textSpan.textContent = (translations[currentLang] && translations[currentLang][showKey]) || (currentLang === 'es' ? 'Desplegar' : 'View');
         }
       }
     });
@@ -640,9 +656,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const certModalImg = document.getElementById('certModalImg');
   const certModalTitle = document.getElementById('certModalTitle');
   const certModalDownload = document.getElementById('certModalDownload');
+  const certModalVerify = document.getElementById('certModalVerify');
   const certModalClose = document.getElementById('certModalClose');
 
-  function openCertModal(imgSrc, titleText) {
+  function openCertModal(imgSrc, titleText, verifyUrl) {
     if (!certModal || !certModalImg) return;
     certModalImg.src = imgSrc;
     certModalImg.alt = titleText || 'Certificado';
@@ -652,7 +669,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (certModalDownload) {
       certModalDownload.href = imgSrc;
       const cleanTitle = (titleText || 'Certificado').replace(/[^a-zA-Z0-9_-]/g, '_');
-      certModalDownload.setAttribute('download', `${cleanTitle}.jpg`);
+      const ext = imgSrc.endsWith('.png') ? 'png' : 'jpg';
+      certModalDownload.setAttribute('download', `${cleanTitle}.${ext}`);
+    }
+    if (certModalVerify) {
+      if (verifyUrl) {
+        certModalVerify.href = verifyUrl;
+        certModalVerify.style.display = 'inline-flex';
+      } else {
+        certModalVerify.style.display = 'none';
+        certModalVerify.href = '#';
+      }
     }
     certModal.classList.add('active');
     certModal.setAttribute('aria-hidden', 'false');
@@ -669,12 +696,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Eventos para abrir modal al hacer clic en la tarjeta de previsualización o botón de ampliar
   document.querySelectorAll('.cert-preview-card, .btn-cert-action.view-btn').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
-      if (e.target.closest('.download-btn')) return;
+      if (e.target.closest('.download-btn') || e.target.closest('.verify-btn')) return;
 
-      const modalImg = trigger.getAttribute('data-modal-img') || trigger.closest('[data-modal-img]')?.getAttribute('data-modal-img');
-      const modalTitle = trigger.getAttribute('data-modal-title') || trigger.closest('[data-modal-title]')?.getAttribute('data-modal-title');
+      const card = trigger.closest('[data-modal-img]') || trigger;
+      const modalImg = trigger.getAttribute('data-modal-img') || card.getAttribute('data-modal-img');
+      const modalTitle = trigger.getAttribute('data-modal-title') || card.getAttribute('data-modal-title');
+      const modalVerify = trigger.getAttribute('data-modal-verify') || card.getAttribute('data-modal-verify');
       if (modalImg) {
-        openCertModal(modalImg, modalTitle);
+        openCertModal(modalImg, modalTitle, modalVerify);
       }
     });
   });
