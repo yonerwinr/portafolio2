@@ -292,8 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "edu-title-1": "Oil Sector AI Bootcamp",
       "edu-desc-1": "Advanced training in Machine Learning, data analysis, and neural networks applied to the optimization of energy operations.",
       "edu-date-2": "January 2020 - April 2025",
-      "edu-title-2": "Computer Engineering",
-      "edu-desc-2": "Graduated in Computer Engineering with a focus on software development, advanced algorithms, and database architecture design.",
+      "edu-title-2": "Software Engineering",
+      "edu-desc-2": "Graduated in Software Engineering with a focus on software development, advanced algorithms, and database architecture design.",
       "edu-date-3": "August 2024 - Present",
       "edu-title-3": "English Course (B2 Level)",
       "edu-desc-3": "Ongoing English language studies, achieving communicative and technical fluency.",
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'Entusiasta de la IA & Datos'
     ],
     en: [
-      'Computer Engineer',
+      'Software Engineer',
       'Full Stack Developer',
       'AI & Data Enthusiast'
     ]
